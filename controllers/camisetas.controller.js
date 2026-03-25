@@ -4,7 +4,7 @@ const listarCamisetas = (req, res) => {
     const validSorts = ['precio_asc', 'precio_desc', 'nombre_asc', 'nombre_desc'];
     
     if (req.query.sort && !validSorts.includes(req.query.sort)) {
-        return res.status(400).json({ error: "Parámetro sort no reconocido" });
+        return res.status(400).json({ error: "Parametro sort no reconocido" });
     }
 
     try {

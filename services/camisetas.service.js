@@ -30,19 +30,17 @@ class CamisetasService {
         }
 
         if (query.sort) {
-            switch (query.sort) {
-                case 'precio_asc':
-                    resultado.sort((a, b) => a.precioBase - b.precioBase);
-                    break;
-                case 'precio_desc':
-                    resultado.sort((a, b) => b.precioBase - a.precioBase);
-                    break;
-                case 'nombre_asc':
-                    resultado.sort((a, b) => a.nombre.localeCompare(b.nombre));
-                    break;
-                case 'nombre_desc':
-                    resultado.sort((a, b) => b.nombre.localeCompare(a.nombre));
-                    break;
+            const estrategiasDeOrden = {
+                'precio_asc': (a, b) => a.precioBase - b.precioBase,
+                'precio_desc': (a, b) => b.precioBase - a.precioBase,
+                'nombre_asc': (a, b) => a.nombre.localeCompare(b.nombre),
+                'nombre_desc': (a, b) => b.nombre.localeCompare(a.nombre)
+            };
+
+            const ordenar = estrategiasDeOrden[query.sort];
+
+            if (ordenar) {
+                resultado.sort(ordenar);
             }
         }
 

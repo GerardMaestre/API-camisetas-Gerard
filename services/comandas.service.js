@@ -8,20 +8,20 @@ const esEmailValido = (email) => {
 
 const validarPedido = (datos) => {
     if (!datos.cliente || !datos.cliente.nombre || datos.cliente.nombre.length < 2) {
-        return "El nombre del cliente es obligatorio y debe tener al menos 2 caracteres.";
+        return "El nombre del cliente es obligatorio y debe tener al menos 2 caracteres";
     }
     if (!datos.cliente.email || !esEmailValido(datos.cliente.email)) {
-        return "El formato del email es inválido.";
+        return "El formato del email no es valido";
     }
     if (!datos.items || !Array.isArray(datos.items) || datos.items.length === 0) {
-        return "El pedido debe contener al menos un item.";
+        return "El pedido debe contener al menos una camiseta";
     }
 
     for (let i = 0; i < datos.items.length; i++) {
         const item = datos.items[i];
         
         if (!item.cantidad || item.cantidad < 1) {
-            return `La cantidad del item ${i + 1} debe ser mayor o igual a 1.`;
+            return `La cantidad del item ${i + 1} debe ser mayor o igual a 1`;
         }
 
         const camiseta = camisetasService.buscarPorId(item.camisetaId);
@@ -29,7 +29,7 @@ const validarPedido = (datos) => {
             return `La camiseta con ID ${item.camisetaId} no existe en el catálogo.`;
         }
         if (!camiseta.tallas.includes(item.talla)) {
-            return `La talla ${item.talla} no está disponible para la camiseta ${item.camisetaId}.`;
+            return `La talla ${item.talla} no esta disponible para la camiseta ${item.camisetaId}.`;
         }
         if (!camiseta.colores.some(c => c.toLowerCase() === item.color.toLowerCase())) {
             return `El color ${item.color} no está disponible para la camiseta ${item.camisetaId}.`;
