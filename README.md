@@ -1,8 +1,8 @@
-# **API TeeLab 👕**
+# **API TeeLab**
 
 API REST para la gestión de un catálogo de camisetas y un sistema de comandas (pedidos), construida con Node.js y Express.
 
-## **🚀 Cómo arrancar el proyecto**
+## **Cómo arrancar el proyecto**
 
 1. Instalar las dependencias del proyecto:  
    npm install
@@ -12,7 +12,7 @@ API REST para la gestión de un catálogo de camisetas y un sistema de comandas 
 
 El servidor estará corriendo en http://localhost:3000
 
-## **📡 Lista de Endpoints**
+## **Lista de Endpoints**
 
 ### **Catálogo de Camisetas**
 
